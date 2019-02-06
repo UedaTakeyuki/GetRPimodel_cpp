@@ -7,7 +7,7 @@
 
 using namespace std;
 
-enum RPiModel {
+enum class RPiModel {
   B, A, B_plus, Compute_Module, A_plus, B2, Zero, B3, A3
 };
 
@@ -68,21 +68,21 @@ class GetRPiModel {
     {"3 Model A+"s,                      "3 Model A"s},
   };
   unordered_map <string, RPiModel> model_enum_tbl{
-    {"B (Beta)"s,                        B},
-    {"B"s,                               B},
-    {"B (ECN0001)"s,                     B},
-    {"A"s,                               A},
-    {"B+"s,                              B_plus},
-    {"Compute Module 1"s,                Compute_Module},
-    {"A+"s,                              A_plus},
-    {"2 Model B"s,                       B2},
-    {"2 Model B (with BCM2837)"s,        B2},
-    {"Zero"s,                            Zero},
-    {"Zero W"s,                          Zero},
-    {"3 Model B"s,                       B3},
-    {"Compute Module 3 (and CM3 Lite)"s, Compute_Module},
-    {"3 Model B+"s,                      B3},
-    {"3 Model A+"s,                      A3},
+    {"B (Beta)"s,                        RPiModel::B},
+    {"B"s,                               RPiModel::B},
+    {"B (ECN0001)"s,                     RPiModel::B},
+    {"A"s,                               RPiModel::A},
+    {"B+"s,                              RPiModel::B_plus},
+    {"Compute Module 1"s,                RPiModel::Compute_Module},
+    {"A+"s,                              RPiModel::A_plus},
+    {"2 Model B"s,                       RPiModel::B2},
+    {"2 Model B (with BCM2837)"s,        RPiModel::B2},
+    {"Zero"s,                            RPiModel::Zero},
+    {"Zero W"s,                          RPiModel::Zero},
+    {"3 Model B"s,                       RPiModel::B3},
+    {"Compute Module 3 (and CM3 Lite)"s, RPiModel::Compute_Module},
+    {"3 Model B+"s,                      RPiModel::B3},
+    {"3 Model A+"s,                      RPiModel::A3},
   };
   string Revision;
   string Release_Date;
