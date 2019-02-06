@@ -1,15 +1,23 @@
 #include "GetRPiModel.h"
 
 int main(){
-	GetRPiModel m;
-	cout << "Revision:        " << m.revision() << '\n';
-	cout << "Release Date:    " <<  m.release_date() << '\n';
-	cout << "Model(original): " <<  m.model_strict() << '\n';
-	cout << "Model(unified):  " <<  m.model_unified() << '\n';
-	cout << "PCB Revision:    " <<  m.PCB_revision() << '\n';
-	cout << "Memory:          " <<  m.memory() << '\n';
-	cout << "Note:            " <<  m.notes() << '\n';
 
+	// Define GetRPiModel object.
+	GetRPiModel m;
+
+	// Following member functions return string according with original table as follow:
+	// https://elinux.org/RPi_HardwareHistory
+	cout << "Revision:        " << m.revision() << '\n';
+	cout << "Release Date:    " << m.release_date() << '\n';
+	cout << "Model(original): " << m.model_strict() << '\n';
+	cout << "PCB Revision:    " << m.PCB_revision() << '\n';
+	cout << "Memory:          " << m.memory() << '\n';
+	cout << "Note:            " << m.notes() << '\n';
+
+	// return "string" of unified model name.
+	cout << "Model(unified):  " <<  m.model_unified() << '\n';
+
+	// return "enum class RPiModel" of unified model name.
 	cout << "Model(enum):     ";
 	switch (m.model()){
 		case RPiModel::A:
