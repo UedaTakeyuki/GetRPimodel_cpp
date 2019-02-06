@@ -2,11 +2,12 @@
 
 int main(){
 	GetRPiModel m;
-	cout << m.revision()<<'\n';
-	cout << m.release_date()<<'\n';
-	cout << m.model_strict()<<'\n';
-	cout << m.model()<<'\n';
-	cout << m.PCB_revision()<<'\n';
-	cout << m.memory()<<'\n';
-	cout << m.notes()<<'\n';
+	cout << "Revision:        " << m.revision() << '\n';
+	cout << "Release Date:    " <<  m.release_date() << '\n';
+	cout << "Model(original): " <<  m.model_strict() << '\n';
+	cout << "Model(unified):  " <<  m.model_unified() << '\n';
+	cout << "Model(enum):     " <<  m.model() << '\n';
+	cout << "PCB Revision:    " <<  m.PCB_revision() << '\n';
+	cout << "Memory:          " <<  m.memory() << '\n';
+	cout << "Note:            " <<  m.notes() << '\n';
 }

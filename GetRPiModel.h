@@ -7,19 +7,23 @@
 
 using namespace std;
 
+enum RPiModel {
+  B, A, B_plus, Compute_Module, A_plus, B2, Zero, B3, A3
+};
+
 class GetRPiModel {
 	//Revision,  Release Date, Model_Strict,                       PCB Revision, Memory, Notes
   unordered_map
     <string,   tuple<string, string,                             string, string, string>> mp{
     {"Beta"s,   {"Q1 2012"s, "B (Beta)"s,                        "?"s,   "256 MB"s, "Beta Board"s}},
-    {"0002"s,   {"Q1 2012"s, "B"s,                                "1.0"s, "256 MB"s, ""s}},
+    {"0002"s,   {"Q1 2012"s, "B"s,                               "1.0"s, "256 MB"s, ""s}},
     {"0003"s,   {"Q3 2012"s, "B (ECN0001)"s,                     "1.0"s, "256 MB"s, "Fuses mod and D14 removed"s}},
-    {"0004"s,   {"Q3 2012"s, "B"s,                                "2.0"s, "256 MB"s, "(Mfg by Sony)"s}},
-    {"0005"s,   {"Q4 2012"s, "B"s,                                "2.0"s, "256 MB"s, "(Mfg by Qisda)"s}},
-    {"0006"s,   {"Q4 2012"s, "B"s,                                "2.0"s, "256 MB"s, "(Mfg by Egoman)"s}},
-    {"0007"s,   {"Q1 2013"s, "A"s,                                "2.0"s, "256 MB"s, "(Mfg by Egoman)"s}},
-    {"0008"s,   {"Q1 2013"s, "A"s,                                "2.0"s, "256 MB"s, "(Mfg by Sony)"s}},
-    {"0009"s,   {"Q1 2013"s, "A"s,                                "2.0"s, "256 MB"s, "(Mfg by Qisda)"s}},
+    {"0004"s,   {"Q3 2012"s, "B"s,                               "2.0"s, "256 MB"s, "(Mfg by Sony)"s}},
+    {"0005"s,   {"Q4 2012"s, "B"s,                               "2.0"s, "256 MB"s, "(Mfg by Qisda)"s}},
+    {"0006"s,   {"Q4 2012"s, "B"s,                               "2.0"s, "256 MB"s, "(Mfg by Egoman)"s}},
+    {"0007"s,   {"Q1 2013"s, "A"s,                               "2.0"s, "256 MB"s, "(Mfg by Egoman)"s}},
+    {"0008"s,   {"Q1 2013"s, "A"s,                               "2.0"s, "256 MB"s, "(Mfg by Sony)"s}},
+    {"0009"s,   {"Q1 2013"s, "A"s,                               "2.0"s, "256 MB"s, "(Mfg by Qisda)"s}},
     {"000d"s,   {"Q4 2012"s, "B"s,                               "2.0"s, "512 MB"s, "(Mfg by Egoman)"s}},
     {"000e"s,   {"Q4 2012"s, "B"s,                               "2.0"s, "512 MB"s, "(Mfg by Sony)"s}},
     {"000f"s,   {"Q4 2012"s, "B"s,                               "2.0"s, "512 MB"s, "(Mfg by Qisda)"s}},
@@ -48,9 +52,9 @@ class GetRPiModel {
   };
   unordered_map <string, string> model_tbl{
     {"B (Beta)"s,                        "B"s},
-    {"B"s,                                "B"s},
+    {"B"s,                               "B"s},
     {"B (ECN0001)"s,                     "B"s},
-    {"A"s,                                "A"s},
+    {"A"s,                               "A"s},
     {"B+"s,                              "B+"s},
     {"Compute Module 1"s,                "Compute Module"s},
     {"A+"s,                              "A+"},
@@ -62,6 +66,23 @@ class GetRPiModel {
     {"Compute Module 3 (and CM3 Lite)"s, "Compute Module"s},
     {"3 Model B+"s,                      "3 Model B"s},
     {"3 Model A+"s,                      "3 Model A"s},
+  };
+  unordered_map <string, RPiModel> model_enum_tbl{
+    {"B (Beta)"s,                        B},
+    {"B"s,                               B},
+    {"B (ECN0001)"s,                     B},
+    {"A"s,                               A},
+    {"B+"s,                              B_plus},
+    {"Compute Module 1"s,                Compute_Module},
+    {"A+"s,                              A_plus},
+    {"2 Model B"s,                       B2},
+    {"2 Model B (with BCM2837)"s,        B2},
+    {"Zero"s,                            Zero},
+    {"Zero W"s,                          Zero},
+    {"3 Model B"s,                       B3},
+    {"Compute Module 3 (and CM3 Lite)"s, Compute_Module},
+    {"3 Model B+"s,                      B3},
+    {"3 Model A+"s,                      A3},
   };
   string Revision;
   string Release_Date;
@@ -99,9 +120,12 @@ public:
   string PCB_revision(){return PCB_Revision;};
   string memory(){return Memory;};
   string notes(){return Notes;};
-  string model(){
+  string model_unified(){
   	return model_tbl.at(Model_Strict);
 	};
+  RPiModel model(){
+    return model_enum_tbl.at(Model_Strict);
+  };
 };
 
 #endif
