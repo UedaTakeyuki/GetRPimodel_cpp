@@ -19,6 +19,7 @@ int main(){
 	// Define GetRPiModel object.
 	GetRPiModel m;
 	
+	// return "enum class RPiModel" of unified model name.
 	switch (m.model()){
 		case RPiModel::B3:
 			uart = "/dev/ttyS0"s;
@@ -27,6 +28,8 @@ int main(){
 			uart = "/dev/ttyAMA0"s;
 			break;
 	}
+	cout << "Model(enum):     ";
+	cout << m.model() << '\n';
 ```
 
 ## example
