@@ -21,7 +21,7 @@ int main(){
 ```
 
 ## example
-Please refer "example.cpp" as an example code.
+Please refer [example.cpp](https://github.com/UedaTakeyuki/GetRPimodel_cpp/blob/master/example.cpp) as an example code.
 
 ## member functions
 
