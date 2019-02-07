@@ -65,3 +65,6 @@ enum class RPiModel {
 ```
 
 The unification logic is the same as model_unified().
+
+## Python version
+Python version is also availabel as [here](https://github.com/UedaTakeyuki/getrpimodel).
