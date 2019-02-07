@@ -17,7 +17,16 @@ Because there are several difference of Hardware configration depend on revision
 int main(){
 
 	// Define GetRPiModel object.
-	GetRPiModel m;  
+	GetRPiModel m;
+	
+	switch (m.model()){
+		case RPiModel::B3:
+			uart = "/dev/ttyS0"s;
+			break;
+		default:
+			uart = "/dev/ttyAMA0";
+			break;
+	}
 ```
 
 ## example
