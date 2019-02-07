@@ -11,6 +11,41 @@ enum class RPiModel {
   B, A, B_plus, Compute_Module, A_plus, B2, Zero, B3, A3
 };
 
+std::ostream &
+operator<<(std::ostream &os, const RPiModel rhs)
+{
+  switch (rhs){
+    case RPiModel::A:
+      os << "model A"s;
+      break;
+    case RPiModel::B:
+      os << "model B"s;
+      break;
+    case RPiModel::B_plus:
+      os << "model B+"s;
+      break;
+    case RPiModel::Compute_Module:
+      os << "Compute Module"s;
+      break;
+    case RPiModel::A_plus:
+      os << "model A+"s;
+      break;
+    case RPiModel::B2:
+      os << "2 model B"s;
+      break;
+    case RPiModel::Zero:
+      os << "Zero"s;
+      break;
+    case RPiModel::B3:
+      os << "3 model B"s;
+      break;
+    case RPiModel::A3:
+      os << "3 model A"s;
+      break;
+  };
+  return os;
+}
+
 class GetRPiModel {
 	//Revision,  Release Date, Model_Strict,                       PCB Revision, Memory, Notes
   unordered_map

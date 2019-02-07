@@ -17,35 +17,18 @@ int main(){
 	// return "string" of unified model name.
 	cout << "Model(unified):  " <<  m.model_unified() << '\n';
 
+	std::string uart;
+	
 	// return "enum class RPiModel" of unified model name.
-	cout << "Model(enum):     ";
 	switch (m.model()){
-		case RPiModel::A:
-			cout << "model A" << '\n';
-			break;
-		case RPiModel::B:
-			cout << "model B" << '\n';
-			break;
-		case RPiModel::B_plus:
-			cout << "model B+" << '\n';
-			break;
-		case RPiModel::Compute_Module:
-			cout << "Compute Module" << '\n';
-			break;
-		case RPiModel::A_plus:
-			cout << "model A+" << '\n';
-			break;
-		case RPiModel::B2:
-			cout << "2 model B" << '\n';
-			break;
-		case RPiModel::Zero:
-			cout << "Zero" << '\n';
-			break;
 		case RPiModel::B3:
-			cout << "3 model B" << '\n';
+			uart = "/dev/ttyS0"s;
 			break;
-		case RPiModel::A3:
-			cout << "3 model A" << '\n';
+		default:
+			uart = "/dev/ttyAMA0"s;
 			break;
-	};
+	}
+
+	cout << "Model(enum):     ";
+	cout << m.model() << '\n';
 }
