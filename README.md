@@ -24,7 +24,7 @@ int main(){
 			uart = "/dev/ttyS0"s;
 			break;
 		default:
-			uart = "/dev/ttyAMA0";
+			uart = "/dev/ttyAMA0"s;
 			break;
 	}
 ```
