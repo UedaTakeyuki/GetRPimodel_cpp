@@ -68,3 +68,6 @@ The unification logic is the same as model_unified().
 
 ## Python version
 Python version is also availabel as [here](https://github.com/UedaTakeyuki/getrpimodel).
+
+## History
+- 2019.02.7 version_1.0.0 First release.
